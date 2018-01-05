@@ -1,0 +1,19 @@
+BOOL isIPv4Address(NSString * inputString) {
+
+    NSArray *comp = [inputString componentsSeparatedByString:@"."];
+    if(comp.count != 4)
+    {
+        return false;
+    }
+    
+    for(NSString *str in comp)
+    {
+        int check = [str intValue];
+        NSRange nonNumber = [str rangeOfCharacterFromSet:[[NSCharacterSet          decimalDigitCharacterSet] invertedSet]];
+        if(check < 0 || check > 255 ||str.length == 0 || nonNumber.location != NSNotFound)
+        {
+            return false;
+        }
+    }
+    return true;
+}
