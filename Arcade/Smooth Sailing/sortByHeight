@@ -1,0 +1,29 @@
+NSMutableArray<NSNumber *> * sortByHeight(NSMutableArray<NSNumber *> * a) {
+    NSMutableArray *people = [NSMutableArray array];
+    for (NSNumber *i in a)
+    {
+        if ([i intValue] != -1)
+        {
+            [people addObject:i];
+        }
+    }
+    
+    [people sortUsingSelector:@selector(compare:)];              //sort array
+    NSMutableArray *sortedPeople = [NSMutableArray array];
+    int n = 0;
+    for (NSNumber *i in a)
+    {
+        if ([i intValue] != -1)
+        {
+            [sortedPeople addObject:people[n]];
+            n++;
+        }
+    
+            else
+        {
+            [sortedPeople addObject:@(-1)];                         //add -1
+        }
+    }
+    return sortedPeople;
+}
+    
