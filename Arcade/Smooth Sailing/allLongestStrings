@@ -1,0 +1,16 @@
+NSMutableArray<NSString *> * allLongestStrings(NSMutableArray<NSString *> * inputArray) {
+    NSUInteger maxLength = 0;
+    
+    for (int i = 0; i < [inputArray count]; i++)
+        maxLength = MAX(maxLength, [inputArray[i] length]);
+    
+    int i = 0;
+    while (i < [inputArray count])
+        if ([inputArray[i] length] < maxLength) {
+            [inputArray removeObjectAtIndex:i];
+        } else {
+            i++;
+        }
+    
+    return inputArray;
+}
