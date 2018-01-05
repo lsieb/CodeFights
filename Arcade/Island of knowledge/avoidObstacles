@@ -1,0 +1,22 @@
+int avoidObstacles(NSMutableArray<NSNumber *> * inputArray) {
+
+    int mp = 0;
+    while(true)
+    {
+        mp += 1;
+        BOOL nope = false;
+        for(NSNumber *n in inputArray)
+        {
+            int intV = n.intValue;                //n integer value  
+            if(intV%mp == 0)                      //modules = 0
+            {
+                nope = true;
+                break;
+            }
+        }
+        if(!nope)
+        {
+            return mp;
+        }
+    }
+}
