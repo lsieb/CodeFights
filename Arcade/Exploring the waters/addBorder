@@ -1,0 +1,16 @@
+NSMutableArray<NSString *> * addBorder(NSMutableArray<NSString *> * picture) {
+
+    NSMutableArray *arr = [NSMutableArray array];
+    NSInteger len = [picture[0] length] +2;
+    NSMutableString *str = [NSMutableString string];
+    for (NSInteger i = 0; i < len; i++) {
+        [str appendString:@"*"];                   //first and last strings
+    }
+    [arr addObject:str];
+    for (NSString *str2 in picture) {
+        [arr addObject:[NSString stringWithFormat:@"*%@*", str2]];     //surround existing                                                                                strings
+    }
+    [arr addObject:str];
+    return arr;
+}
+
