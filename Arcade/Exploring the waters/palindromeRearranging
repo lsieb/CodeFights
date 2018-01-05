@@ -1,0 +1,22 @@
+BOOL palindromeRearranging(NSString * inputString) {
+    
+    NSMutableSet *set = [NSMutableSet new];
+    for(int i = 0;i < inputString.length;i++)
+    {
+        NSString *str = [inputString substringWithRange:NSMakeRange(i,1)];
+        if([set containsObject:str])
+        {
+            [set removeObject:str];
+        }
+        else
+        {
+            [set addObject:str];
+        }
+    }
+    if(set.count > 1)
+
+    {
+        return false;
+    }
+    return true;
+}
