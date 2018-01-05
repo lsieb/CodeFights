@@ -1,0 +1,28 @@
+int commonCharacterCount(NSString * s1, NSString * s2) {
+    NSString *strShort, *strLong;
+    if ([s1 length] > [s2 length])
+    {
+        strShort = s2;
+        strLong = s1;
+    }
+    else
+    {
+        strShort = s1;
+        strLong = s2;
+    }
+    
+    NSMutableString *s = [NSMutableString stringWithString:strLong];
+    int i = 0;
+    for (int index = 0; index < [strShort length]; index++)
+    {
+        NSString *c = [strShort substringWithRange:NSMakeRange(index, 1)];
+        NSRange range = [s rangeOfString:c];
+        if (range.length > 0)
+        {
+            i++;
+            [s deleteCharactersInRange:NSMakeRange(range.location, 1)];
+        }
+    }
+    
+    return i;
+}
