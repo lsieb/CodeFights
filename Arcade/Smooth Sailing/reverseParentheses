@@ -1,0 +1,29 @@
+NSString * reverseParentheses(NSString * s) {
+    
+    NSMutableString *strA = [s mutableCopy];
+    NSMutableString *strReverse = [NSMutableString new];
+    
+    for(int i = 1; i < strA.length; i++)
+    {
+        NSString  *strChar = [strA substringWithRange:NSMakeRange(i, 1)];
+        if([strChar isEqualToString:@"("])
+        {
+            NSString *strInput = [strA substringWithRange: NSMakeRange(i,strA.length-i)];
+            NSString *strReplace = reverseParentheses(strInput);
+            [strA replaceCharactersInRange:NSMakeRange(i,strA.length-i) withString:strReplace];
+            --i;
+        }
+        else
+            if ([strChar isEqualToString:@")"])
+        {
+            [strA replaceCharactersInRange:NSMakeRange(0,strReverse.length+2)
+            withString:strReverse];
+            return strA;
+        }
+        else
+        {
+            [strReverse insertString:strChar atIndex:0];
+        }
+    } return strA;
+}
+
