@@ -1,0 +1,13 @@
+int adjacentElementsProduct(NSMutableArray<NSNumber *> * inputArray) {
+    int mp = INT_MIN;
+    NSNumber *prev = inputArray.firstObject;
+    for(int i = 1; i < [inputArray count]; i++){
+        NSNumber *curr = inputArray[i];
+        int np = curr.integerValue*prev.integerValue;
+        if(np > mp){
+            mp = np;
+        }    
+    prev = curr;
+    }
+    return mp;
+}
