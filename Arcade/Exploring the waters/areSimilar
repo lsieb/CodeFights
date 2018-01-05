@@ -1,0 +1,35 @@
+BOOL areSimilar(NSMutableArray<NSNumber *> * a, NSMutableArray<NSNumber *> * b) {
+    
+    NSNumber *numDifferentA = nil;
+    NSNumber *numDifferentB = nil;
+    BOOL oneDone = false;
+    for(int i = 0;i < a.count;i++)
+    {
+        NSNumber *numA = a[i];
+        NSNumber *numB = b[i];
+        if(numA.intValue != numB.intValue)
+        {
+            if(numDifferentA == nil)
+            {
+                if(oneDone)
+                {
+                    return false;
+                }
+                numDifferentA = numA;
+                numDifferentB = numB;
+            }
+            else
+            {
+                if(numDifferentA.intValue != numB.intValue || numDifferentB.intValue != numA.intValue)
+                {
+                    return false;
+                }
+                numDifferentA = nil;
+                numDifferentB = nil;
+                oneDone = true;
+            }
+        }
+    }
+    return true;
+
+}
