@@ -1,0 +1,22 @@
+NSMutableArray<NSNumber *> * alternatingSums(NSMutableArray<NSNumber *> * a) {
+
+    int team1 = 0;
+    int team2 = 0;
+    for(int i = 0; i < a.count; i++)
+    {
+        NSNumber *n = a[i];
+        if(i%2 == 0)
+        {
+            team2 += n.intValue;
+        }
+        else
+        {
+            team1 += n.intValue;
+        }
+    }
+    NSMutableArray *teams = [NSMutableArray new];
+    [teams addObject:@(team2)];
+    [teams addObject:@(team1)];
+    return teams;
+    }
+    
