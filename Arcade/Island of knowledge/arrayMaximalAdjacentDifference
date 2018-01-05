@@ -1,0 +1,14 @@
+int arrayMaximalAdjacentDifference(NSMutableArray<NSNumber *> * inputArray) {
+    int maxdiff = 0;
+    for (int i = 1; i < [inputArray count]; i++)
+        maxdiff = MAX(
+            maxdiff,
+            abs(
+                [[inputArray objectAtIndex:i] intValue]                //curr - prev
+                - [[inputArray objectAtIndex:i - 1] intValue]
+            )
+        );
+    
+    return maxdiff;
+}
+
