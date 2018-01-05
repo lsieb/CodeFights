@@ -1,0 +1,15 @@
+BOOL checkPalindrome(NSString * inputString) {
+    
+    int l = [inputString length] - 1;
+    
+    
+    for(int i = 0; i <= l / 2; i++)
+    {
+        if([inputString characterAtIndex:i] != [inputString characterAtIndex:(l - i)])
+        {
+            return false;
+        }
+    }
+    
+    return true;
+}
