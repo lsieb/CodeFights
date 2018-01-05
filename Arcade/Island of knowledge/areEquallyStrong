@@ -1,0 +1,5 @@
+BOOL areEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight) {
+    return MAX(yourLeft, yourRight) == MAX(friendsLeft, friendsRight)
+        && MIN(yourLeft, yourRight) == MIN(friendsLeft, friendsRight);
+}
+
