@@ -1,0 +1,14 @@
+int arrayChange(NSMutableArray<NSNumber *> * inputArray) {
+    int numMoves = 0;
+    int prev = [[inputArray firstObject] intValue];
+    for (int i = 1; i < inputArray.count; ++i) {
+        if ([inputArray[i] intValue] <= prev) {
+            numMoves += prev + 1 - [inputArray[i] intValue];
+            ++prev;
+        }
+        else {
+            prev = [inputArray[i] intValue];
+        }
+    }
+    return numMoves;
+}
