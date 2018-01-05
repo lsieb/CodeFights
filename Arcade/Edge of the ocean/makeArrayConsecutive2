@@ -1,0 +1,11 @@
+int makeArrayConsecutive2(NSMutableArray<NSNumber *> * statues) {
+ 
+
+ int max = [[statues valueForKeyPath: @"@max.intValue"] intValue];
+    int min = [[statues valueForKeyPath: @"@min.intValue"] intValue];
+    
+    return (max - min - [statues count] + 1);
+
+ 
+ 
+ }
