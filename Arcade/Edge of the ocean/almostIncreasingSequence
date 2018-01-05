@@ -1,0 +1,57 @@
+BOOL almostIncreasingSequence(NSMutableArray<NSNumber *> * sequence) {
+if(sequence.count <= 2)
+    {
+        return true;
+    }
+    int fl = -1;
+    
+    
+    for(int i = 0;i < sequence.count-2;i++)
+    {
+        NSNumber *numFirst = sequence[i];
+        NSNumber *numSecond = sequence[i+1];
+        NSNumber *numThird = sequence[i+2];
+        if(numFirst.intValue >= numSecond.intValue)
+        {
+            if(numFirst.intValue >= numThird.intValue)
+            {
+                if(fl != -1 && fl !=i)
+                {
+                    return false;
+                }
+                fl = i;
+            }
+            else
+            {
+                if(fl != -1 && fl !=i+1)
+                {
+                    return false;
+                }
+                fl = i+1;
+            }
+        }
+        if(numSecond.intValue >= numThird.intValue)
+        {
+            if(numFirst.intValue >= numThird.intValue)
+            {
+                if(fl != -1 && fl !=i+2)
+                {
+                    return false;
+                }
+                fl = i+2;
+            }
+            else
+            {
+                if(fl != -1 && fl !=i+1)
+                {
+                    return false;
+                }
+                fl = i+1;
+            }
+        }
+    }
+    return true;
+
+    
+    
+}
