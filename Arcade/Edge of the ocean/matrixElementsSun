@@ -1,0 +1,15 @@
+int matrixElementsSum(NSMutableArray<NSMutableArray<NSNumber *> *> * matrix) {
+    int sum = 0;
+    for (int i=0; i<matrix.count; i++) {
+        for (int x=0; x<[matrix[i] count]; x++) {
+            NSNumber *num = matrix[i][x];
+                if ([num isEqualToNumber:@0] && (i+1<matrix.count)) {
+                    [matrix[i+1] replaceObjectAtIndex:x withObject:@0];
+                } else {
+                    sum += [num floatValue];
+                }
+        }
+    }
+    printf("%@", matrix);
+    return sum;
+}
